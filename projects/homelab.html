@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cybersecurity Home Lab | Seth Davies-Patrick</title>
+<meta name="description" content="A self-built home lab simulating a small enterprise network: Proxmox, pfSense, VLANs and a SIEM.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1620'/%3E%3Ccircle cx='9' cy='16' r='3' fill='%233dd68c'/%3E%3Cpath d='M14 16h10M19 10v12' stroke='%23fff' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Seth Davies-Patrick</a>
+    <nav class="site-nav" aria-label="Main"><a href="../index.html">Home</a><a href="../about.html">About</a><a href="../projects/index.html" aria-current="page">Projects</a><a href="../skills.html">Skills</a><a href="../writing/index.html">Writing</a><a href="../contact.html">Contact</a></nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+<section class="hero"><h1>Cybersecurity Home Lab</h1><p class="meta"><span class="chip progress">In progress</span> <span class="meta">Rack rebuild planned for December</span></p><p class="lede">A self-built home lab simulating a small-scale enterprise IT environment, focused on infrastructure security, system administration and defensive cybersecurity.</p>
+  <div class="actions">
+    <a class="btn primary" href="https://github.com/sethosauruss/surfacepro-cybersecurity-homelab" rel="noopener">View on GitHub</a>
+  </div>
+</section>
+<figure class="topology">
+  <div class="panel">
+    <svg viewBox="0 0 900 340" role="img"
+         aria-label="Network diagram. Planned for December: Internet connects to a pfSense firewall, then a managed switch, which feeds three VLANs named Lab, Trusted and IoT. Running today: a Surface Pro running Proxmox and Debian, and a Raspberry Pi 5 running CasaOS.">
+      <text class="d-label" x="20" y="24">December rack build (planned)</text>
+
+      <!-- links -->
+      <path class="d-link" d="M130 96 H190"/>
+      <path class="d-link" d="M330 96 H390"/>
+      <path class="d-link" d="M540 96 H570 V50 H620"/>
+      <path class="d-link" d="M540 96 H620"/>
+      <path class="d-link" d="M540 96 H570 V142 H620"/>
+
+      <!-- nodes -->
+      <rect class="d-box" x="20" y="70" width="110" height="52" rx="6"/>
+      <text class="d-title" x="36" y="93">Internet</text>
+      <text class="d-sub" x="36" y="111">upstream</text>
+
+      <rect class="d-box planned" x="190" y="70" width="140" height="52" rx="6"/>
+      <text class="d-title" x="206" y="93">pfSense</text>
+      <text class="d-sub" x="206" y="111">dedicated firewall</text>
+
+      <rect class="d-box planned" x="390" y="70" width="150" height="52" rx="6"/>
+      <text class="d-title" x="406" y="93">TL-SG108E</text>
+      <text class="d-sub" x="406" y="111">managed switch</text>
+
+      <!-- VLAN lanes -->
+      <rect class="d-box planned" x="620" y="26" width="260" height="48" rx="6"/>
+      <rect class="d-bar-lab" x="620" y="26" width="7" height="48" rx="3"/>
+      <text class="d-title" x="640" y="46">VLAN Lab</text>
+      <text class="d-sub" x="640" y="63">Proxmox host, Kali, SIEM</text>
+
+      <rect class="d-box planned" x="620" y="72" width="260" height="48" rx="6"/>
+      <rect class="d-bar-trusted" x="620" y="72" width="7" height="48" rx="3"/>
+      <text class="d-title" x="640" y="92">VLAN Trusted</text>
+      <text class="d-sub" x="640" y="109">everyday devices</text>
+
+      <rect class="d-box planned" x="620" y="118" width="260" height="48" rx="6"/>
+      <rect class="d-bar-iot" x="620" y="118" width="7" height="48" rx="3"/>
+      <text class="d-title" x="640" y="138">VLAN IoT</text>
+      <text class="d-sub" x="640" y="155">IoT devices</text>
+
+      <line class="d-rule" x1="20" y1="205" x2="880" y2="205"/>
+      <text class="d-label" x="20" y="232">Running today</text>
+
+      <rect class="d-box" x="20" y="250" width="230" height="58" rx="6"/>
+      <circle class="d-led" cx="38" cy="270" r="5"/>
+      <text class="d-title" x="52" y="275">Surface Pro</text>
+      <text class="d-sub" x="38" y="296">Proxmox VE and Debian</text>
+
+      <rect class="d-box" x="280" y="250" width="230" height="58" rx="6"/>
+      <circle class="d-led" cx="298" cy="270" r="5"/>
+      <text class="d-title" x="312" y="275">Raspberry Pi 5</text>
+      <text class="d-sub" x="298" y="296">CasaOS and self-hosted apps</text>
+
+      <text class="d-sub" x="545" y="274">Today: two standalone machines.</text>
+      <text class="d-sub" x="545" y="294">December: a rack, firewall, switch and VLANs.</text>
+    </svg>
+    <ul class="diagram-list" aria-label="Network plan as a list">
+      <li><strong>Running today:</strong> a Surface Pro (Proxmox VE and Debian) and a Raspberry Pi 5 (CasaOS).</li>
+      <li><strong>Planned for December:</strong> Internet to a pfSense firewall, then a TL-SG108E managed switch.</li>
+      <li><strong>Three VLANs:</strong> Lab (Proxmox host, Kali, SIEM), Trusted (everyday devices) and IoT.</li>
+    </ul>
+  </div>
+  <figcaption>Where the lab is today and where the December rebuild is heading. Solid outlines are running now. Dashed outlines are planned and not built yet.</figcaption>
+</figure>
+
+<section class="section">
+  <h2>Running today</h2>
+  <dl class="facts">
+    <div><dt>Surface Pro</dt><dd>A repurposed Microsoft Surface Pro with a broken screen, running Proxmox VE and Debian Linux. I've worked on SSH hardening, Fail2Ban intrusion prevention, Docker containers, firewall configuration and authentication log analysis. The architecture diagrams and config files are on GitHub.</dd></div>
+    <div><dt>Raspberry Pi 5</dt><dd>Runs CasaOS with Plex, Jellyfin, Tailscale and a remote monitoring app for my 3D printer, plus a Minecraft Bedrock server that is marked legacy and due for a rebuild.</dd></div>
+  </dl>
+</section>
+
+<section class="section">
+  <h2>The December rebuild</h2>
+  <p>The plan is to move from two standalone machines to a rack with a dedicated firewall and network segmentation.</p>
+  <dl class="facts">
+    <div><dt>Hardware</dt><dd>Tecmojo 6U rack, TP-Link TL-SG108E managed switch, Dell OptiPlex 7040 Micro (i5-6500T, 16GB) as the lab host, a JetKVM for remote console access, and a second Raspberry Pi 5 so the K3s cluster has two nodes.</dd></div>
+    <div><dt>Firewall</dt><dd>pfSense. The box is still undecided. I'm tearing down a Fujitsu TeamPoS 7000 to check whether the mainboard detaches from the screen and how many network ports it has. If it works, it's a free firewall. If not, I'll buy a cheap secondhand micro PC.</dd></div>
+    <div><dt>Lab host</dt><dd>Proxmox running Kali Linux, Metasploitable2 and DVWA as practice targets, CALDERA and Atomic Red Team for adversary emulation, MITRE ATT&amp;CK Navigator, Plex, and a SIEM.</dd></div>
+    <div><dt>K3s on the Pis</dt><dd>Pi-hole, Uptime Kuma, a Homepage or Homarr dashboard, Prometheus and Grafana, and the printer monitoring app, spread across both nodes.</dd></div>
+  </dl>
+  <h3 style="margin-top:2rem">Network segmentation</h3>
+  <ul class="vlans">
+    <li class="lab"><strong>Lab</strong>: the Proxmox host and its practice targets, kept away from everything else.</li>
+    <li class="trusted"><strong>Trusted</strong>: everyday devices.</li>
+    <li class="iot"><strong>IoT</strong>: smart and low-trust devices.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Order of work</h2>
+  <ol class="steps">
+    <li>Fujitsu teardown: detach the screen, confirm the mainboard is modular, count the network ports.</li>
+    <li>Decide on the SIEM: Wazuh, a self-built ELK stack, or both.</li>
+    <li>Buy the second Raspberry Pi 5 and redistribute services across two K3s nodes.</li>
+    <li>Design and print custom rack mounts for the firewall and the Dell host.</li>
+    <li>Set up the Lab, Trusted and IoT VLANs once the firewall and switch are physically installed.</li>
+  </ol>
+</section>
+
+<section class="section">
+  <h2>Open decisions</h2>
+  <ul class="plain">
+    <li><strong>Wazuh or ELK.</strong> The Dell host has 16GB of RAM, and it also has to run Kali, the practice targets and the adversary emulation tools, so the SIEM's resource use matters.</li>
+    <li><strong>Which firewall hardware.</strong> This depends on the Fujitsu teardown.</li>
+  </ul>
+  <p>Cut from the build: UPS, patch panel, Tailscale, Jellyfin (Plex only) and the Minecraft Bedrock server.</p>
+</section>
+
+<section class="section">
+  <h2>Documentation</h2>
+  <p>Everything is documented on <a href="https://github.com/sethosauruss/surfacepro-cybersecurity-homelab" rel="noopener">GitHub</a>. I plan to film the teardown, rack assembly and cabling and add short videos here once the build is done.</p>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Seth Davies-Patrick, Melbourne</p>
+    <div class="links">
+      <a href="https://github.com/sethosauruss" rel="noopener">GitHub</a>
+      <a href="https://au.linkedin.com/in/sethdaviespatrick" rel="noopener">LinkedIn</a>
+      <a href="mailto:sethdaviespatrick@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
