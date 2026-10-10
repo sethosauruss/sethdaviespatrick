@@ -23,7 +23,7 @@
 <main id="main" class="wrap">
 <section class="hero"><h1>Cybersecurity Home Lab</h1><p class="meta"><span class="chip progress">In progress</span> <span class="meta">Rack rebuild planned for December</span></p><p class="lede">A self-built home lab simulating a small-scale enterprise IT environment, focused on infrastructure security, system administration and defensive cybersecurity.</p>
   <div class="actions">
-    <a class="btn primary" href="https://github.com/sethosauruss/surfacepro-cybersecurity-homelab" rel="noopener">View on GitHub</a>
+    <a class="btn primary" href="https://github.com/sethosauruss/segmented-security-homelab" rel="noopener">View on GitHub</a>
   </div>
 </section>
 <figure class="topology">
@@ -81,7 +81,7 @@
   <dl class="facts">
     <div><dt>Raspberry Pi 5</dt><dd>A 4GB Pi running CasaOS with Plex and a remote monitoring app for my 3D printer. I've backed up the Plex config and plan to wipe it and rebuild on Raspberry Pi OS Lite with Docker Compose. Everything it runs will then be defined in one file, which is easier to rebuild and document.</dd></div>
     <div><dt>pfSense test</dt><dd>I tore down a Fujitsu TeamPoS 7000 (Celeron G540, 4GB) and installed pfSense CE 2.7.2 on it. It booted and worked, with one onboard network port plus a USB gigabit adapter. I'm not using it in the rack because it is too wide for a 10 inch rack and likely draws more power than a small PC would for the same job.</dd></div>
-    <div><dt>Surface Pro</dt><dd>My first Proxmox host, a repurposed Surface Pro with a broken screen. It's retired now, but the SSH hardening, Fail2Ban, Docker and log analysis work from it is still documented on <a href="https://github.com/sethosauruss/surfacepro-cybersecurity-homelab" rel="noopener">GitHub</a>.</dd></div>
+    <div><dt>Surface Pro</dt><dd>My first Proxmox host, a repurposed Surface Pro with a broken screen. It's retired now, but the SSH hardening, Fail2Ban, Docker and log analysis work from it is still documented in the <a href="https://github.com/sethosauruss/surfacepro-cybersecurity-homelab" rel="noopener">old repo on GitHub</a>.</dd></div>
   </dl>
 </section>
 
@@ -103,7 +103,17 @@
   </ul>
 </section>
 
-
+<section class="section">
+  <h2>Order of work</h2>
+  <ol class="steps">
+    <li>Order the hardware and rebuild the Pi.</li>
+    <li>Install pfSense on the first EliteDesk and put the firewall and switch in the rack.</li>
+    <li>Set up the Lab, Trusted and IoT VLANs and test that they are really separated.</li>
+    <li>Install Proxmox on the second EliteDesk and build the lab VMs.</li>
+    <li>Design and print custom rack mounts.</li>
+    <li>Add a SIEM once the RAM upgrade is done.</li>
+  </ol>
+</section>
 
 <section class="section">
   <h2>Open decisions</h2>
@@ -115,7 +125,7 @@
 
 <section class="section">
   <h2>Documentation</h2>
-  <p>Everything is documented on <a href="https://github.com/sethosauruss/surfacepro-cybersecurity-homelab" rel="noopener">GitHub</a>. I plan to film the rack assembly and cabling and add short videos here once the build is done.</p>
+  <p>Everything is documented on <a href="https://github.com/sethosauruss/segmented-security-homelab" rel="noopener">GitHub</a>. I plan to film the rack assembly and cabling and add short videos here once the build is done.</p>
 </section>
 
 </main>
