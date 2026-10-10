@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cybersecurity Home Lab | Seth Davies-Patrick</title>
-<meta name="description" content="A self-built home lab simulating a small enterprise network: Proxmox, pfSense, VLANs and a SIEM.">
+<meta name="description" content="A self-built home lab simulating a small enterprise network: Proxmox, pfSense and VLANs.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1620'/%3E%3Ccircle cx='9' cy='16' r='3' fill='%233dd68c'/%3E%3Cpath d='M14 16h10M19 10v12' stroke='%23fff' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@
 <figure class="topology">
   <div class="panel">
     <svg viewBox="0 0 900 340" role="img"
-         aria-label="Network diagram. Planned for December: Internet connects to a pfSense firewall, then a managed switch, which feeds three VLANs named Lab, Trusted and IoT. Running today: a Surface Pro running Proxmox and Debian, and a Raspberry Pi 5 running CasaOS.">
+         aria-label="Network diagram. Planned for December: Internet connects to a pfSense firewall, then a managed switch, which feeds three VLANs named Lab, Trusted and IoT. Running today: a Raspberry Pi 5 running CasaOS. Tested: pfSense on a Fujitsu till, which will not go in the rack.">
       <text class="d-label" x="20" y="24">December rack build (planned)</text>
 
       <!-- links -->
@@ -46,7 +46,7 @@
 
       <rect class="d-box planned" x="190" y="70" width="140" height="52" rx="6"/>
       <text class="d-title" x="206" y="93">pfSense</text>
-      <text class="d-sub" x="206" y="111">dedicated firewall</text>
+      <text class="d-sub" x="206" y="111">EliteDesk 800 Mini</text>
 
       <rect class="d-box planned" x="390" y="70" width="150" height="52" rx="6"/>
       <text class="d-title" x="406" y="93">TL-SG108E</text>
@@ -56,7 +56,7 @@
       <rect class="d-box planned" x="620" y="26" width="260" height="48" rx="6"/>
       <rect class="d-bar-lab" x="620" y="26" width="7" height="48" rx="3"/>
       <text class="d-title" x="640" y="46">VLAN Lab</text>
-      <text class="d-sub" x="640" y="63">Proxmox host, Kali, SIEM</text>
+      <text class="d-sub" x="640" y="63">EliteDesk Proxmox host, Kali</text>
 
       <rect class="d-box planned" x="620" y="72" width="260" height="48" rx="6"/>
       <rect class="d-bar-trusted" x="620" y="72" width="7" height="48" rx="3"/>
@@ -73,42 +73,43 @@
 
       <rect class="d-box" x="20" y="250" width="230" height="58" rx="6"/>
       <circle class="d-led" cx="38" cy="270" r="5"/>
-      <text class="d-title" x="52" y="275">Surface Pro</text>
-      <text class="d-sub" x="38" y="296">Proxmox VE and Debian</text>
+      <text class="d-title" x="52" y="275">Raspberry Pi 5</text>
+      <text class="d-sub" x="38" y="296">CasaOS, Plex, rebuild planned</text>
 
       <rect class="d-box" x="280" y="250" width="230" height="58" rx="6"/>
-      <circle class="d-led" cx="298" cy="270" r="5"/>
-      <text class="d-title" x="312" y="275">Raspberry Pi 5</text>
-      <text class="d-sub" x="298" y="296">CasaOS and self-hosted apps</text>
+      <text class="d-title" x="298" y="275">Fujitsu till (tested)</text>
+      <text class="d-sub" x="298" y="296">pfSense booted, too big for rack</text>
 
-      <text class="d-sub" x="545" y="274">Today: two standalone machines.</text>
+      <text class="d-sub" x="545" y="274">Today: a Pi and a pfSense test box.</text>
       <text class="d-sub" x="545" y="294">December: a rack, firewall, switch and VLANs.</text>
     </svg>
     <ul class="diagram-list" aria-label="Network plan as a list">
-      <li><strong>Running today:</strong> a Surface Pro (Proxmox VE and Debian) and a Raspberry Pi 5 (CasaOS).</li>
-      <li><strong>Planned for December:</strong> Internet to a pfSense firewall, then a TL-SG108E managed switch.</li>
-      <li><strong>Three VLANs:</strong> Lab (Proxmox host, Kali, SIEM), Trusted (everyday devices) and IoT.</li>
+      <li><strong>Running today:</strong> a Raspberry Pi 5 (CasaOS). pfSense has also been tested on a Fujitsu till.</li>
+      <li><strong>Planned for December:</strong> Internet to a pfSense firewall on an HP EliteDesk Mini, then a TL-SG108E managed switch.</li>
+      <li><strong>Three VLANs:</strong> Lab (Proxmox host, Kali), Trusted (everyday devices) and IoT.</li>
     </ul>
   </div>
-  <figcaption>Where the lab is today and where the December rebuild is heading. Solid outlines are running now. Dashed outlines are planned and not built yet.</figcaption>
+  <figcaption>Where the lab is today and where the December rebuild is heading. The Surface Pro I started on has been retired. Solid outlines are running now. Dashed outlines are planned and not built yet.</figcaption>
 </figure>
 
 <section class="section">
-  <h2>Running today</h2>
+  <h2>Where it is now</h2>
   <dl class="facts">
-    <div><dt>Surface Pro</dt><dd>A repurposed Microsoft Surface Pro with a broken screen, running Proxmox VE and Debian Linux. I've worked on SSH hardening, Fail2Ban intrusion prevention, Docker containers, firewall configuration and authentication log analysis. The architecture diagrams and config files are on GitHub.</dd></div>
-    <div><dt>Raspberry Pi 5</dt><dd>Runs CasaOS with Plex, Jellyfin, Tailscale and a remote monitoring app for my 3D printer, plus a Minecraft Bedrock server that is marked legacy and due for a rebuild.</dd></div>
+    <div><dt>Raspberry Pi 5</dt><dd>A 4GB Pi running CasaOS with Plex and a remote monitoring app for my 3D printer. I've backed up the Plex config and plan to wipe it and rebuild on Raspberry Pi OS Lite with Docker Compose. Everything it runs will then be defined in one file, which is easier to rebuild and document.</dd></div>
+    <div><dt>pfSense test</dt><dd>I tore down a Fujitsu TeamPoS 7000 (Celeron G540, 4GB) and installed pfSense CE 2.7.2 on it. It booted and worked, with one onboard network port plus a USB gigabit adapter. I'm not using it in the rack because it is too wide for a 10 inch rack and likely draws more power than a small PC would for the same job.</dd></div>
+    <div><dt>Surface Pro</dt><dd>My first Proxmox host, a repurposed Surface Pro with a broken screen. It's retired now, but the SSH hardening, Fail2Ban, Docker and log analysis work from it is still documented on <a href="https://github.com/sethosauruss/surfacepro-cybersecurity-homelab" rel="noopener">GitHub</a>.</dd></div>
   </dl>
 </section>
 
 <section class="section">
   <h2>The December rebuild</h2>
-  <p>The plan is to move from two standalone machines to a rack with a dedicated firewall and network segmentation.</p>
+  <p>The plan is to move to a single rack with a dedicated firewall and network segmentation. Everything has to fit inside it.</p>
   <dl class="facts">
-    <div><dt>Hardware</dt><dd>Tecmojo 6U rack, TP-Link TL-SG108E managed switch, Dell OptiPlex 7040 Micro (i5-6500T, 16GB) as the lab host, a JetKVM for remote console access, and a second Raspberry Pi 5 so the K3s cluster has two nodes.</dd></div>
-    <div><dt>Firewall</dt><dd>pfSense. The box is still undecided. I'm tearing down a Fujitsu TeamPoS 7000 to check whether the mainboard detaches from the screen and how many network ports it has. If it works, it's a free firewall. If not, I'll buy a cheap secondhand micro PC.</dd></div>
-    <div><dt>Lab host</dt><dd>Proxmox running Kali Linux, Metasploitable2 and DVWA as practice targets, CALDERA and Atomic Red Team for adversary emulation, MITRE ATT&amp;CK Navigator, Plex, and a SIEM.</dd></div>
-    <div><dt>K3s on the Pis</dt><dd>Pi-hole, Uptime Kuma, a Homepage or Homarr dashboard, Prometheus and Grafana, and the printer monitoring app, spread across both nodes.</dd></div>
+    <div><dt>Rack</dt><dd>Tecmojo 6U, 10 inch wide and 200mm deep, with a shelf.</dd></div>
+    <div><dt>Firewall</dt><dd>An HP EliteDesk 800 G3 Mini (i5-7500T) running pfSense, using the USB gigabit adapter I already own as its second port.</dd></div>
+    <div><dt>Lab host</dt><dd>A second EliteDesk 800 G3 Mini running Proxmox. It starts at 8GB of RAM and goes to 16GB later. It will run Kali Linux, Metasploitable2 and DVWA as practice targets, CALDERA and Atomic Red Team for adversary emulation, MITRE ATT&amp;CK Navigator, and Plex using the CPU's Quick Sync for transcoding.</dd></div>
+    <div><dt>Switch and console</dt><dd>A TP-Link TL-SG108E managed switch for the VLANs, and a JetKVM for remote console access, moved between machines by hand.</dd></div>
+    <div><dt>Raspberry Pi 5</dt><dd>Stays as the always-on box. After the rebuild it runs Plex, Pi-hole, Uptime Kuma, the printer monitoring app and Tailscale for remote access.</dd></div>
   </dl>
   <h3 style="margin-top:2rem">Network segmentation</h3>
   <ul class="vlans">
@@ -121,26 +122,26 @@
 <section class="section">
   <h2>Order of work</h2>
   <ol class="steps">
-    <li>Fujitsu teardown: detach the screen, confirm the mainboard is modular, count the network ports.</li>
-    <li>Decide on the SIEM: Wazuh, a self-built ELK stack, or both.</li>
-    <li>Buy the second Raspberry Pi 5 and redistribute services across two K3s nodes.</li>
-    <li>Design and print custom rack mounts for the firewall and the Dell host.</li>
-    <li>Set up the Lab, Trusted and IoT VLANs once the firewall and switch are physically installed.</li>
+    <li>Order the hardware and rebuild the Pi.</li>
+    <li>Install pfSense on the first EliteDesk and put the firewall and switch in the rack.</li>
+    <li>Set up the Lab, Trusted and IoT VLANs and test that they are really separated.</li>
+    <li>Install Proxmox on the second EliteDesk and build the lab VMs.</li>
+    <li>Design and print custom rack mounts.</li>
+    <li>Add a SIEM once the RAM upgrade is done.</li>
   </ol>
 </section>
 
 <section class="section">
   <h2>Open decisions</h2>
   <ul class="plain">
-    <li><strong>Wazuh or ELK.</strong> The Dell host has 16GB of RAM, and it also has to run Kali, the practice targets and the adversary emulation tools, so the SIEM's resource use matters.</li>
-    <li><strong>Which firewall hardware.</strong> This depends on the Fujitsu teardown.</li>
+    <li><strong>Wazuh or a self-built ELK stack.</strong> The SIEM is put off until the lab host has 16GB, because it shares that machine with Kali, the practice targets and the emulation tools.</li>
   </ul>
-  <p>Cut from the build: UPS, patch panel, Tailscale, Jellyfin (Plex only) and the Minecraft Bedrock server.</p>
+  <p>Cut from the build: UPS, patch panel, a second Pi, a KVM switch, Jellyfin and the Minecraft Bedrock server.</p>
 </section>
 
 <section class="section">
   <h2>Documentation</h2>
-  <p>Everything is documented on <a href="https://github.com/sethosauruss/surfacepro-cybersecurity-homelab" rel="noopener">GitHub</a>. I plan to film the teardown, rack assembly and cabling and add short videos here once the build is done.</p>
+  <p>Everything is documented on <a href="https://github.com/sethosauruss/surfacepro-cybersecurity-homelab" rel="noopener">GitHub</a>. I plan to film the rack assembly and cabling and add short videos here once the build is done.</p>
 </section>
 
 </main>

@@ -21,7 +21,7 @@
   </div>
 </header>
 <main id="main" class="wrap">
-<section class="hero"><h1>Seth Davies-Patrick</h1><p class="lede">Second-year IT student at La Trobe. I'm turning a Surface Pro and a Raspberry Pi into a small enterprise-style network at home, and writing down what I learn along the way.</p>
+<section class="hero"><h1>Seth Davies-Patrick</h1><p class="lede">Second-year IT student at La Trobe. I'm building a small enterprise-style network at home, with a pfSense firewall, VLANs and a Raspberry Pi, and writing down what I learn along the way.</p>
   <div class="actions">
     <a class="btn primary" href="projects/homelab.html">Read the home lab write-up</a>
     <a class="btn" href="resume.pdf">Download resume</a>
@@ -30,7 +30,7 @@
 <figure class="topology">
   <div class="panel">
     <svg viewBox="0 0 900 340" role="img"
-         aria-label="Network diagram. Planned for December: Internet connects to a pfSense firewall, then a managed switch, which feeds three VLANs named Lab, Trusted and IoT. Running today: a Surface Pro running Proxmox and Debian, and a Raspberry Pi 5 running CasaOS.">
+         aria-label="Network diagram. Planned for December: Internet connects to a pfSense firewall, then a managed switch, which feeds three VLANs named Lab, Trusted and IoT. Running today: a Raspberry Pi 5 running CasaOS. Tested: pfSense on a Fujitsu till, which will not go in the rack.">
       <text class="d-label" x="20" y="24">December rack build (planned)</text>
 
       <!-- links -->
@@ -47,7 +47,7 @@
 
       <rect class="d-box planned" x="190" y="70" width="140" height="52" rx="6"/>
       <text class="d-title" x="206" y="93">pfSense</text>
-      <text class="d-sub" x="206" y="111">dedicated firewall</text>
+      <text class="d-sub" x="206" y="111">EliteDesk 800 Mini</text>
 
       <rect class="d-box planned" x="390" y="70" width="150" height="52" rx="6"/>
       <text class="d-title" x="406" y="93">TL-SG108E</text>
@@ -57,7 +57,7 @@
       <rect class="d-box planned" x="620" y="26" width="260" height="48" rx="6"/>
       <rect class="d-bar-lab" x="620" y="26" width="7" height="48" rx="3"/>
       <text class="d-title" x="640" y="46">VLAN Lab</text>
-      <text class="d-sub" x="640" y="63">Proxmox host, Kali, SIEM</text>
+      <text class="d-sub" x="640" y="63">EliteDesk Proxmox host, Kali</text>
 
       <rect class="d-box planned" x="620" y="72" width="260" height="48" rx="6"/>
       <rect class="d-bar-trusted" x="620" y="72" width="7" height="48" rx="3"/>
@@ -74,31 +74,30 @@
 
       <rect class="d-box" x="20" y="250" width="230" height="58" rx="6"/>
       <circle class="d-led" cx="38" cy="270" r="5"/>
-      <text class="d-title" x="52" y="275">Surface Pro</text>
-      <text class="d-sub" x="38" y="296">Proxmox VE and Debian</text>
+      <text class="d-title" x="52" y="275">Raspberry Pi 5</text>
+      <text class="d-sub" x="38" y="296">CasaOS, Plex, rebuild planned</text>
 
       <rect class="d-box" x="280" y="250" width="230" height="58" rx="6"/>
-      <circle class="d-led" cx="298" cy="270" r="5"/>
-      <text class="d-title" x="312" y="275">Raspberry Pi 5</text>
-      <text class="d-sub" x="298" y="296">CasaOS and self-hosted apps</text>
+      <text class="d-title" x="298" y="275">Fujitsu till (tested)</text>
+      <text class="d-sub" x="298" y="296">pfSense booted, too big for rack</text>
 
-      <text class="d-sub" x="545" y="274">Today: two standalone machines.</text>
+      <text class="d-sub" x="545" y="274">Today: a Pi and a pfSense test box.</text>
       <text class="d-sub" x="545" y="294">December: a rack, firewall, switch and VLANs.</text>
     </svg>
     <ul class="diagram-list" aria-label="Network plan as a list">
-      <li><strong>Running today:</strong> a Surface Pro (Proxmox VE and Debian) and a Raspberry Pi 5 (CasaOS).</li>
-      <li><strong>Planned for December:</strong> Internet to a pfSense firewall, then a TL-SG108E managed switch.</li>
-      <li><strong>Three VLANs:</strong> Lab (Proxmox host, Kali, SIEM), Trusted (everyday devices) and IoT.</li>
+      <li><strong>Running today:</strong> a Raspberry Pi 5 (CasaOS). pfSense has also been tested on a Fujitsu till.</li>
+      <li><strong>Planned for December:</strong> Internet to a pfSense firewall on an HP EliteDesk Mini, then a TL-SG108E managed switch.</li>
+      <li><strong>Three VLANs:</strong> Lab (Proxmox host, Kali), Trusted (everyday devices) and IoT.</li>
     </ul>
   </div>
-  <figcaption>Where the lab is today and where the December rebuild is heading. Solid outlines are running now. Dashed outlines are planned and not built yet.</figcaption>
+  <figcaption>Where the lab is today and where the December rebuild is heading. The Surface Pro I started on has been retired. Solid outlines are running now. Dashed outlines are planned and not built yet.</figcaption>
 </figure>
 
 <section class="section">
   <h2>Right now</h2>
   <dl class="facts">
     <div><dt>Looking for</dt><dd>An entry-level IT support or service desk role. Part time or casual suits me best while I study, and I'd consider full time for the right position.</dd></div>
-    <div><dt>Building</dt><dd>A 6U rack with a dedicated pfSense firewall, a managed switch and three VLANs, starting over the December break. <a href="projects/homelab.html">Details and decisions</a>.</dd></div>
+    <div><dt>Building</dt><dd>A 6U rack with a dedicated pfSense firewall, a Proxmox host, a managed switch and three VLANs, starting over the December break. <a href="projects/homelab.html">Details and decisions</a>.</dd></div>
     <div><dt>Learning</dt><dd>Microsoft 365 and Azure fundamentals (AZ-900 and MS-900 are the plan), plus Python and Linux administration through the lab.</dd></div>
   </dl>
 </section>
