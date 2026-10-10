@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Seth Davies-Patrick | IT student and home lab builder</title>
-<meta name="description" content="Portfolio of Seth Davies-Patrick, a second-year IT student building a small enterprise-style home lab.">
+<title>Seth Davies-Patrick | IT student looking for a support role</title>
+<meta name="description" content="Seth Davies-Patrick, a second-year IT student in Melbourne's west looking for an entry-level IT support or service desk role.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1620'/%3E%3Ccircle cx='9' cy='16' r='3' fill='%233dd68c'/%3E%3Cpath d='M14 16h10M19 10v12' stroke='%23fff' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,89 +17,49 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="index.html">Seth Davies-Patrick</a>
-    <nav class="site-nav" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="about.html">About</a><a href="projects/index.html">Projects</a><a href="skills.html">Skills</a><a href="writing/index.html">Writing</a><a href="contact.html">Contact</a></nav>
+    <nav class="site-nav" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="about.html">About</a><a href="looking-for.html">Looking for</a><a href="direction.html">Direction</a><a href="projects/index.html">Projects</a><a href="skills.html">Skills</a><a href="contact.html">Contact</a></nav>
   </div>
 </header>
 <main id="main" class="wrap">
-<section class="hero"><h1>Seth Davies-Patrick</h1><p class="lede">Second-year IT student at La Trobe. I'm building a small enterprise-style network at home, with a pfSense firewall, VLANs and a Raspberry Pi, and writing down what I learn along the way.</p>
+<section class="hero"><h1>Seth Davies-Patrick</h1><p class="lede">I'm a second-year IT student at La Trobe, based in Melbourne's west. I'm looking for an entry-level IT support or service desk role, and I'm building my skills towards systems, networking and cyber security.</p>
   <div class="actions">
-    <a class="btn primary" href="projects/homelab.html">Read the home lab write-up</a>
-    <a class="btn" href="resume.pdf">Download resume</a>
+    <a class="btn primary" href="resume.pdf">Download resume</a>
+    <a class="btn" href="contact.html">Get in touch</a>
   </div>
 </section>
-<figure class="topology">
-  <div class="panel">
-    <svg viewBox="0 0 900 340" role="img"
-         aria-label="Network diagram. Planned for December: Internet connects to a pfSense firewall, then a managed switch, which feeds three VLANs named Lab, Trusted and IoT. Running today: a Raspberry Pi 5 running CasaOS. Tested: pfSense on a Fujitsu till, which will not go in the rack.">
-      <text class="d-label" x="20" y="24">December rack build (planned)</text>
-
-      <!-- links -->
-      <path class="d-link" d="M130 96 H190"/>
-      <path class="d-link" d="M330 96 H390"/>
-      <path class="d-link" d="M540 96 H570 V50 H620"/>
-      <path class="d-link" d="M540 96 H620"/>
-      <path class="d-link" d="M540 96 H570 V142 H620"/>
-
-      <!-- nodes -->
-      <rect class="d-box" x="20" y="70" width="110" height="52" rx="6"/>
-      <text class="d-title" x="36" y="93">Internet</text>
-      <text class="d-sub" x="36" y="111">upstream</text>
-
-      <rect class="d-box planned" x="190" y="70" width="140" height="52" rx="6"/>
-      <text class="d-title" x="206" y="93">pfSense</text>
-      <text class="d-sub" x="206" y="111">EliteDesk 800 Mini</text>
-
-      <rect class="d-box planned" x="390" y="70" width="150" height="52" rx="6"/>
-      <text class="d-title" x="406" y="93">TL-SG108E</text>
-      <text class="d-sub" x="406" y="111">managed switch</text>
-
-      <!-- VLAN lanes -->
-      <rect class="d-box planned" x="620" y="26" width="260" height="48" rx="6"/>
-      <rect class="d-bar-lab" x="620" y="26" width="7" height="48" rx="3"/>
-      <text class="d-title" x="640" y="46">VLAN Lab</text>
-      <text class="d-sub" x="640" y="63">EliteDesk Proxmox host, Kali</text>
-
-      <rect class="d-box planned" x="620" y="72" width="260" height="48" rx="6"/>
-      <rect class="d-bar-trusted" x="620" y="72" width="7" height="48" rx="3"/>
-      <text class="d-title" x="640" y="92">VLAN Trusted</text>
-      <text class="d-sub" x="640" y="109">everyday devices</text>
-
-      <rect class="d-box planned" x="620" y="118" width="260" height="48" rx="6"/>
-      <rect class="d-bar-iot" x="620" y="118" width="7" height="48" rx="3"/>
-      <text class="d-title" x="640" y="138">VLAN IoT</text>
-      <text class="d-sub" x="640" y="155">IoT devices</text>
-
-      <line class="d-rule" x1="20" y1="205" x2="880" y2="205"/>
-      <text class="d-label" x="20" y="232">Running today</text>
-
-      <rect class="d-box" x="20" y="250" width="230" height="58" rx="6"/>
-      <circle class="d-led" cx="38" cy="270" r="5"/>
-      <text class="d-title" x="52" y="275">Raspberry Pi 5</text>
-      <text class="d-sub" x="38" y="296">CasaOS, Plex, rebuild planned</text>
-
-      <rect class="d-box" x="280" y="250" width="230" height="58" rx="6"/>
-      <text class="d-title" x="298" y="275">Fujitsu till (tested)</text>
-      <text class="d-sub" x="298" y="296">pfSense booted, too big for rack</text>
-
-      <text class="d-sub" x="545" y="274">Today: a Pi and a pfSense test box.</text>
-      <text class="d-sub" x="545" y="294">December: a rack, firewall, switch and VLANs.</text>
-    </svg>
-    <ul class="diagram-list" aria-label="Network plan as a list">
-      <li><strong>Running today:</strong> a Raspberry Pi 5 (CasaOS). pfSense has also been tested on a Fujitsu till.</li>
-      <li><strong>Planned for December:</strong> Internet to a pfSense firewall on an HP EliteDesk Mini, then a TL-SG108E managed switch.</li>
-      <li><strong>Three VLANs:</strong> Lab (Proxmox host, Kali), Trusted (everyday devices) and IoT.</li>
-    </ul>
-  </div>
-  <figcaption>Where the lab is today and where the December rebuild is heading. The Surface Pro I started on has been retired. Solid outlines are running now. Dashed outlines are planned and not built yet.</figcaption>
-</figure>
-
 <section class="section">
   <h2>Right now</h2>
   <dl class="facts">
-    <div><dt>Looking for</dt><dd>An entry-level IT support or service desk role. Part time or casual suits me best while I study, and I'd consider full time for the right position.</dd></div>
-    <div><dt>Building</dt><dd>A 6U rack with a dedicated pfSense firewall, a Proxmox host, a managed switch and three VLANs, starting over the December break. <a href="projects/homelab.html">Details and decisions</a>.</dd></div>
-    <div><dt>Learning</dt><dd>Microsoft 365 and Azure fundamentals (AZ-900 and MS-900 are the plan), plus Python and Linux administration through the lab.</dd></div>
+    <div><dt>Looking for</dt><dd>An entry-level IT support or service desk role, or a junior systems or applications support role. Part time or casual suits me best while I study. I'd consider full time for the right position. <a href="looking-for.html">More detail</a>.</dd></div>
+    <div><dt>Good at</dt><dd>Working out what is actually wrong and explaining it to someone who isn't technical. I got that from technical retail at Jaycar and from back operations at JB Hi-Fi.</dd></div>
+    <div><dt>Heading towards</dt><dd>Systems, infrastructure and cyber security work, with strong Linux and networking skills. <a href="direction.html">My plan</a>.</dd></div>
+    <div><dt>Also</dt><dd>I've done freelance graphic design since 2019, so I can make documentation, diagrams and visuals clear and easy to read.</dd></div>
   </dl>
+</section>
+<section class="section">
+  <h2>Proof of the work</h2>
+  <div class="rows">
+    <article class="row">
+      <div>
+        <h3><a href="projects/homelab.html">Cybersecurity home lab</a></h3>
+        <p>A rack build with pfSense, a Proxmox host and VLANs, documented as I go.</p>
+      </div>
+      <span class="chip progress">In progress</span>
+    </article>
+    <article class="row">
+      <div>
+        <h3><a href="skills.html">Skills</a></h3>
+        <p>What I can do across IT, networking, security, hardware and design.</p>
+      </div>
+    </article>
+    <article class="row">
+      <div>
+        <h3><a href="projects/uni-coursework.html">University coursework</a></h3>
+        <p>Security reports and case studies, added once each unit is marked.</p>
+      </div>
+      <span class="chip planned">Planned</span>
+    </article>
+  </div>
 </section>
 
 </main>
