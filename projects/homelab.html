@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cybersecurity Home Lab | Seth Davies-Patrick</title>
-<meta name="description" content="A self-built home lab simulating a small enterprise network: Proxmox, pfSense and VLANs.">
+<meta name="description" content="A self-built home lab simulating a small enterprise network: Proxmox, pfSense and four VLANs.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="../assets/img/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="../assets/img/favicon-512.png" type="image/png" sizes="512x512">
@@ -23,111 +23,67 @@
   </div>
 </header>
 <main id="main" class="wrap">
-<section class="hero"><h1>Cybersecurity Home Lab</h1><p class="meta"><span class="chip progress">In progress</span> <span class="meta">Rack rebuild planned for December</span></p><p class="lede">A self-built home lab simulating a small-scale enterprise IT environment, focused on infrastructure security, system administration and defensive cybersecurity.</p>
+<section class="hero"><h1>Cybersecurity Home Lab</h1><p class="meta"><span class="chip progress">In progress</span> <span class="meta">Built and running. Attack testing is the current phase.</span></p><p class="lede">A self-built home lab simulating a small-scale enterprise IT environment, focused on infrastructure security, system administration and defensive cybersecurity.</p>
   <div class="actions">
     <a class="btn primary" href="https://github.com/sethosauruss/segmented-security-homelab" rel="noopener">View on GitHub</a>
   </div>
 </section>
 <figure class="topology">
   <div class="panel">
-    <svg viewBox="0 0 900 190" role="img"
-         aria-label="Network diagram of the December rack build: Internet connects to a pfSense firewall, then a managed switch, which feeds three VLANs named Lab, Trusted and IoT.">
-      <text class="d-label" x="20" y="24">December rack build</text>
-
-      <!-- links -->
-      <path class="d-link" d="M130 96 H190"/>
-      <path class="d-link" d="M330 96 H390"/>
-      <path class="d-link" d="M540 96 H570 V37 H620"/>
-      <path class="d-link" d="M540 96 H620"/>
-      <path class="d-link" d="M540 96 H570 V153 H620"/>
-
-      <!-- nodes -->
-      <rect class="d-box" x="20" y="70" width="110" height="52" rx="6"/>
-      <text class="d-title" x="36" y="93">Internet</text>
-      <text class="d-sub" x="36" y="111">upstream</text>
-
-      <rect class="d-box planned" x="190" y="70" width="140" height="52" rx="6"/>
-      <text class="d-title" x="206" y="93">pfSense</text>
-      <text class="d-sub" x="206" y="111">EliteDesk 800 Mini</text>
-
-      <rect class="d-box planned" x="390" y="70" width="150" height="52" rx="6"/>
-      <text class="d-title" x="406" y="93">TL-SG108E</text>
-      <text class="d-sub" x="406" y="111">managed switch</text>
-
-      <!-- VLAN lanes -->
-      <rect class="d-box planned" x="620" y="14" width="260" height="46" rx="6"/>
-      <rect class="d-bar-lab" x="620" y="14" width="7" height="46" rx="3"/>
-      <text class="d-title" x="640" y="34">VLAN Lab</text>
-      <text class="d-sub" x="640" y="51">EliteDesk Proxmox host, Kali</text>
-
-      <rect class="d-box planned" x="620" y="72" width="260" height="46" rx="6"/>
-      <rect class="d-bar-trusted" x="620" y="72" width="7" height="46" rx="3"/>
-      <text class="d-title" x="640" y="92">VLAN Trusted</text>
-      <text class="d-sub" x="640" y="109">everyday devices</text>
-
-      <rect class="d-box planned" x="620" y="130" width="260" height="46" rx="6"/>
-      <rect class="d-bar-iot" x="620" y="130" width="7" height="46" rx="3"/>
-      <text class="d-title" x="640" y="150">VLAN IoT</text>
-      <text class="d-sub" x="640" y="167">IoT devices</text>
+    <svg viewBox="0 0 900 250" role="img" aria-label="Network diagram of the built lab: Internet connects to a pfSense firewall, then a managed switch, which feeds four VLANs named Trusted, Lab, IoT and DMZ, and Management.">
+      <path class="d-link" d="M130 124 H190"/><path class="d-link" d="M330 124 H390"/>
+      <path class="d-link" d="M540 124 H570 V37 H620"/><path class="d-link" d="M540 124 H570 V95 H620"/><path class="d-link" d="M540 124 H570 V153 H620"/><path class="d-link" d="M540 124 H570 V211 H620"/>
+      <rect class="d-box" x="20" y="98" width="110" height="52" rx="6"/><text class="d-title" x="36" y="121">Internet</text><text class="d-sub" x="36" y="138">upstream</text>
+      <rect class="d-box" x="190" y="98" width="140" height="52" rx="6"/><text class="d-title" x="206" y="121">pfSense</text><text class="d-sub" x="206" y="138">EliteDesk 800 G3</text>
+      <rect class="d-box" x="390" y="98" width="150" height="52" rx="6"/><text class="d-title" x="406" y="121">TL-SG108E</text><text class="d-sub" x="406" y="138">managed switch</text>
+      <rect class="d-box" x="620" y="14" width="260" height="46" rx="6"/><rect class="d-bar-trusted" x="620" y="14" width="7" height="46" rx="3"/><text class="d-title" x="640" y="34">VLAN 10 Trusted</text><text class="d-sub" x="640" y="51">Raspberry Pi 5 and services</text>
+      <rect class="d-box" x="620" y="72" width="260" height="46" rx="6"/><rect class="d-bar-lab" x="620" y="72" width="7" height="46" rx="3"/><text class="d-title" x="640" y="92">VLAN 20 Lab</text><text class="d-sub" x="640" y="109">Kali and DVWA VMs</text>
+      <rect class="d-box" x="620" y="130" width="260" height="46" rx="6"/><rect class="d-bar-iot" x="620" y="130" width="7" height="46" rx="3"/><text class="d-title" x="640" y="150">VLAN 30 IoT/DMZ</text><text class="d-sub" x="640" y="167">smart and low-trust devices</text>
+      <rect class="d-box" x="620" y="188" width="260" height="46" rx="6"/><rect class="d-bar-mgmt" x="620" y="188" width="7" height="46" rx="3"/><text class="d-title" x="640" y="208">VLAN 99 Management</text><text class="d-sub" x="640" y="225">Proxmox host, JetKVM</text>
     </svg>
-    <ul class="diagram-list" aria-label="Network plan as a list">
-      <li><strong>Planned:</strong> Internet to a pfSense firewall on an HP EliteDesk Mini, then a TL-SG108E managed switch.</li>
-      <li><strong>Three VLANs:</strong> Lab (Proxmox host, Kali), Trusted (everyday devices) and IoT.</li>
+    <ul class="diagram-list" aria-label="Network as a list">
+      <li>Internet to a pfSense firewall on an HP EliteDesk 800 G3 Mini, then a TL-SG108E managed switch.</li><li>Four firewalled VLANs: Trusted (10) with the Raspberry Pi 5, Lab (20) with Kali and DVWA, IoT/DMZ (30), and Management (99) with the Proxmox host and JetKVM.</li>
     </ul>
   </div>
-  <figcaption>The planned December rack build.</figcaption>
+  <figcaption>The network as built.</figcaption>
 </figure>
 
-<section class="section">
-  <h2>Where it is now</h2>
-  <dl class="facts">
-    <div><dt>Raspberry Pi 5</dt><dd>A 4GB Pi running CasaOS with Plex and a remote monitoring app for my 3D printer. I've backed up the Plex config and plan to wipe it and rebuild on Raspberry Pi OS Lite with Docker Compose. Everything it runs will then be defined in one file, which is easier to rebuild and document.</dd></div>
-    <div><dt>pfSense test</dt><dd>I tore down a Fujitsu TeamPoS 7000 (Celeron G540, 4GB) and installed pfSense CE 2.7.2 on it. It booted and worked, with one onboard network port plus a USB gigabit adapter. I'm not using it in the rack because it is too wide for a 10 inch rack and likely draws more power than a small PC would for the same job.</dd></div>
-    <div><dt>Surface Pro</dt><dd>My first Proxmox host, a repurposed Surface Pro with a broken screen. It's retired now, but the SSH hardening, Fail2Ban, Docker and log analysis work from it is still documented in the <a href="https://github.com/sethosauruss/surfacepro-cybersecurity-homelab" rel="noopener">old repo on GitHub</a>.</dd></div>
-  </dl>
+<section class="section" id="built">
+  <h2>What is built</h2>
+  <dl class="facts"><div><dt>Rack</dt><dd>A Tecmojo 6U, 10 inch rack, fully assembled. From the top down: pfSense firewall (an HP EliteDesk 800 G3 Mini) at 6U, the Proxmox host (a second EliteDesk) at 5U, a patch panel and brush panel at 4U, the TL-SG108E switch and a JetKVM at 3U, the Raspberry Pi 5 shelf at 2U, and 1U spare.</dd></div><div><dt>Cabling</dt><dd>A 12-port patch panel, wired and labelled. Cables are colour-coded by zone: green for Trusted, blue for Lab, orange for IoT/DMZ and grey for the uplink.</dd></div><div><dt>Firewall</dt><dd>pfSense 2.7.2 with router-on-a-stick off one onboard network port. I dropped a USB ethernet adapter after it proved unreliable.</dd></div><div><dt>DNS and remote access</dt><dd>DNS runs on Unbound, access-listed per subnet. Remote access is through Tailscale (on the Pi and my PC). No ports are forwarded except a Plex forward restricted to a source.</dd></div><div><dt>Raspberry Pi 5<br><span class="meta">Trusted VLAN</span></dt><dd>Raspberry Pi OS Lite with Docker Compose, running Plex (read-only media mounts), Samba (two shares only), Tailscale, Vaultwarden (backup tested), Uptime Kuma and Seerr. Seerr is for requests and discovery only, because I am deliberately not building a full download-automation stack. SSH is hardened: key-only, set in a drop-in config and verified with <code>sshd -T</code>.</dd></div><div><dt>Proxmox host<br><span class="meta">Management VLAN</span></dt><dd>Proxmox VE 9 with hardened SSH, verified both ways: the key works and a forced password login is correctly refused. It hosts a Kali VM and a DVWA target VM, both on the Lab VLAN. Kali has a <code>clean-install</code> snapshot. DVWA runs on Debian 13 with Apache, PHP and MariaDB, with <code>clean-install</code>, <code>dvwa-ready</code> and <code>attack-baseline</code> snapshots.</dd></div><div><dt>JetKVM<br><span class="meta">Management VLAN</span></dt><dd>Out-of-band console and BIOS access to the machines in the rack.</dd></div></dl>
+</section>
+
+<section class="section" id="segmentation">
+  <h2>Network zones</h2>
+  <ul class="vlans"><li class="trusted"><strong>VLAN 10 Trusted</strong>: everyday devices and the Raspberry Pi.</li><li class="lab"><strong>VLAN 20 Lab</strong>: the Kali and DVWA VMs, kept away from everything else.</li><li class="iot"><strong>VLAN 30 IoT/DMZ</strong>: smart and low-trust devices.</li><li class="mgmt"><strong>VLAN 99 Management</strong>: the Proxmox host and the JetKVM.</li></ul>
+  <p style="margin-top:1.2rem">There is also the LAN on VLAN 1 and the WAN on VLAN 2. Every zone is firewalled default-deny. I tested the isolation two ways: through the firewall rules, and with an 802.1Q audit of the switch, which caught and fixed a couple of leftover VLAN memberships.</p>
 </section>
 
 <section class="section">
-  <h2>The December rebuild</h2>
-  <p>The plan is to move to a single rack with a dedicated firewall and network segmentation. Everything has to fit inside it.</p>
-  <dl class="facts">
-    <div><dt>Rack</dt><dd>Tecmojo 6U, 10 inch wide and 200mm deep, with a shelf.</dd></div>
-    <div><dt>Firewall</dt><dd>An HP EliteDesk 800 G3 Mini (i5-7500T) running pfSense, using the USB gigabit adapter I already own as its second port.</dd></div>
-    <div><dt>Lab host</dt><dd>A second EliteDesk 800 G3 Mini running Proxmox. It starts at 8GB of RAM and goes to 16GB later. It will run Kali Linux, Metasploitable2 and DVWA as practice targets, CALDERA and Atomic Red Team for adversary emulation, MITRE ATT&amp;CK Navigator, and Plex using the CPU's Quick Sync for transcoding.</dd></div>
-    <div><dt>Switch and console</dt><dd>A TP-Link TL-SG108E managed switch for the VLANs, and a JetKVM for remote console access, moved between machines by hand.</dd></div>
-    <div><dt>Raspberry Pi 5</dt><dd>Stays as the always-on box. After the rebuild it runs Plex, Pi-hole, Uptime Kuma, the printer monitoring app and Tailscale for remote access.</dd></div>
-  </dl>
-  <h3 style="margin-top:2rem">Network segmentation</h3>
-  <ul class="vlans">
-    <li class="lab"><strong>Lab</strong>: the Proxmox host and its practice targets, kept away from everything else.</li>
-    <li class="trusted"><strong>Trusted</strong>: everyday devices.</li>
-    <li class="iot"><strong>IoT</strong>: smart and low-trust devices.</li>
-  </ul>
+  <h2>Attack testing (current phase)</h2>
+  <dl class="facts"><div><dt>DVWA login page</dt><dd>I brute-forced the main login page. A CSRF token and redirect caused false positives, so I wrote a custom curl loop that fetches a fresh token for every attempt and follows redirects. It found the default credential cleanly.</dd></div><div><dt>DVWA Brute Force module</dt><dd>I used Hydra against the separate training module (a GET form with no CSRF at the Low level). Fixing a field-ordering mistake and a typo that caused a false positive got the same credential. Both results were checked by hand in the browser.</dd></div></dl>
 </section>
 
 <section class="section">
-  <h2>Order of work</h2>
-  <ol class="steps">
-    <li>Order the hardware and rebuild the Pi.</li>
-    <li>Install pfSense on the first EliteDesk and put the firewall and switch in the rack.</li>
-    <li>Set up the Lab, Trusted and IoT VLANs and test that they are really separated.</li>
-    <li>Install Proxmox on the second EliteDesk and build the lab VMs.</li>
-    <li>Design and print custom rack mounts.</li>
-    <li>Add a SIEM once the RAM upgrade is done.</li>
-  </ol>
+  <h2>Known gaps</h2>
+  <ul class="plain"><li><strong>No SIEM or detection layer yet.</strong> Wazuh is the long-standing gap.</li><li><strong>Backups are patchy.</strong> Only Vaultwarden has a proper backup script so far.</li></ul>
 </section>
 
 <section class="section">
-  <h2>Open decisions</h2>
-  <ul class="plain">
-    <li><strong>Wazuh or a self-built ELK stack.</strong> The SIEM is put off until the lab host has 16GB, because it shares that machine with Kali, the practice targets and the emulation tools.</li>
-  </ul>
-  <p>Cut from the build: UPS, patch panel, a second Pi, a KVM switch, Jellyfin and the Minecraft Bedrock server.</p>
+  <h2>Planned, not started</h2>
+  <dl class="facts"><div><dt>More targets</dt><dd>Metasploitable2 for a broader attack surface and Metasploit practice, OWASP Juice Shop as a more realistic modern web app, and re-running the brute-force tests at DVWA Medium and High difficulty.</dd></div><div><dt>More attack tooling</dt><dd>Running the next DVWA rounds (SQL injection, XSS, command injection) through Burp Suite, and CALDERA and Atomic Red Team for automated adversary emulation mapped to MITRE ATT&amp;CK.</dd></div><div><dt>Detection</dt><dd>Wazuh, possibly paired with the pfSense packages pfBlockerNG (reputation and GeoIP blocking) and Suricata or Snort (IDS/IPS).</dd></div><div><dt>Documentation tooling</dt><dd>NetBox for IPAM and DCIM, replacing the markdown VLAN and rack tables with a queryable system.</dd></div><div><dt>Second Raspberry Pi 5 (8GB)</dt><dd>A two-node K3s cluster, Prometheus and Grafana for real metrics, and Homepage or Homarr as one dashboard.</dd></div><div><dt>1U rack display</dt><dd>A GeeekPi 6.91 inch 1424x280 screen looks like the right fit. Not bought yet.</dd></div><div><dt>Backups</dt><dd>Centralising them with Restic or Duplicati.</dd></div><div><dt>Traffic visibility</dt><dd>ntopng, if the switch can mirror a port or through pfSense.</dd></div></dl>
 </section>
 
 <section class="section">
   <h2>Documentation</h2>
-  <p>Everything is documented on <a href="https://github.com/sethosauruss/segmented-security-homelab" rel="noopener">GitHub</a>. I plan to film the rack assembly and cabling and add short videos here once the build is done.</p>
+  <p>Everything is documented on <a href="https://github.com/sethosauruss/segmented-security-homelab" rel="noopener">GitHub</a>. The repo is split into:</p>
+  <dl class="facts"><div><dt><code>network-security.md</code></dt><dd>The threat model, zones, switch and patch panel, firewall rules, DNS, remote access, and hardening by host.</dd></div><div><dt><code>testing-and-gaps.md</code></dt><dd>Isolation test results, known gaps and lessons.</dd></div><div><dt><code>dvwa-pentest.md</code></dt><dd>The target setup and a running attack log.</dd></div><div><dt><code>SECURITY.md</code></dt><dd>A vulnerability-disclosure file at the root of the repo.</dd></div></dl>
+  <p style="margin-top:1.2rem">I also publish a weekly series of LinkedIn posts documenting the build.</p>
+</section>
+
+<section class="section">
+  <h2>Where it started</h2>
+  <p>My first Proxmox host was a repurposed Surface Pro with a broken screen. It is retired now, but the SSH hardening, Fail2Ban, Docker and log analysis work from it is still documented in the <a href="https://github.com/sethosauruss/surfacepro-cybersecurity-homelab" rel="noopener">old repo on GitHub</a>.</p>
 </section>
 
 </main>
