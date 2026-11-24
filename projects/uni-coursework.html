@@ -4,66 +4,40 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>University coursework | Seth Davies-Patrick</title>
-<meta name="description" content="Selected coursework by Seth Davies-Patrick.">
+<meta name="description" content="Reports and case studies from the degree.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="../assets/img/favicon-32.png" type="image/png" sizes="32x32">
-<link rel="icon" href="../assets/img/favicon-512.png" type="image/png" sizes="512x512">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="preload" href="../assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/style.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="../index.html">Seth Davies-Patrick</a>
-    <nav class="site-nav" aria-label="Main"><a href="../index.html">Home</a><a href="../about.html">About</a><a href="../looking-for.html">Looking for</a><a href="../direction.html">Direction</a><a href="../projects/index.html" aria-current="page">Projects</a><a href="../skills.html">Skills</a><a href="../contact.html">Contact</a></nav>
+<header class="nav">
+  <div class="nav-bar">
+    <a class="brand" href="../index.html" aria-label="Seth Davies-Patrick, home"><b>SDP</b><span>Seth Davies-Patrick</span></a>
+    <nav class="nav-links" aria-label="Main"><a href="../index.html">Home</a><a href="../about.html">About</a><a href="../looking-for.html">Looking for</a><a href="../direction.html">Direction</a><a href="../projects/index.html" aria-current="page">Projects</a><a href="../skills.html">Skills</a><a href="../contact.html">Contact</a></nav>
+    <button class="nav-toggle" type="button" aria-expanded="false">Menu</button>
+    <a class="nav-resume" href="../resume.pdf">Resume</a>
   </div>
 </header>
 <main id="main" class="wrap">
-<section class="hero"><h1>University coursework</h1><p class="lede">Selected work from my degree. Each item goes up once the unit is finished and marked.</p></section>
+<section class="page-head"><p class="eyebrow reveal">Projects</p><h1 class="reveal" style="--d:60ms">University coursework</h1><p class="lede">Selected work from my degree. Each item goes up once the unit is finished and marked.</p></section>
+<section class="section" style="margin-top:2.5rem"><div class="rows">
+ <article class="card static reveal"><div class="top"><div><span class="tag">CSE2HUM, Human Factors in Cyber Security</span><h3>Cyber threats and human exploitation in healthcare SMEs</h3></div><span class="chip done">Completed</span></div><p>An industry threat analysis of how cybercriminals target small healthcare providers, why these attacks succeed so often, and what practical defences small teams can afford. Key points: healthcare recorded more data breach notifications than any other sector in Australia (OAIC, 2025), attackers succeeded in 95% of the healthcare attacks they attempted (Avant, 2025), and in one recent case the 22 day delay in notifying patients drew more criticism than the breach itself.</p><p><a href="../documents/healthcare-sme-cyber-threats.pdf">Read the report (PDF, 7 pages)</a></p></article>
+ <article class="card static reveal"><div class="top"><div><span class="tag">CSE2SIA, Security and Information Assurance</span><h3>Medibank 2022 data breach: report and slides</h3></div><span class="chip group">Group project</span></div><p>A group case study on how the 2022 Medibank breach happened, what risks it created and which controls would have reduced them. Done with Javier Diaz-Aliste and Eddie Gosden. My parts were the introduction, the attack path (with each stage marked as confirmed, alleged or inferred), and two control comparisons: phishing-resistant MFA versus zero trust network access, and an in-house SIEM and SOC versus managed detection and response.</p><p><a href="../documents/medibank-2022-data-breach-group-report.pdf">Read the group report and slides (PDF, 14 pages)</a></p></article>
+ <article class="card static reveal"><div class="top"><div><span class="tag">CSE2HUM, Human Factors in Cyber Security</span><h3>WattleBridge executive briefing: human cyber risk</h3></div><span class="chip group">Group project</span></div><p>A group briefing for the leadership of a fictional community services organisation, built only from the case evidence pack. It works out why staff who know what to do often do not do it, picks three priority human risks, and sets out a 12-month plan within a $65k budget. Done with Javier Diaz-Aliste and Eddie Gosden.</p><p><a href="../documents/wattlebridge-executive-briefing.pdf">Read the executive briefing (PDF, 29 pages)</a></p></article>
+</div></section>
 <section class="section">
-  <div class="rows">
-    <article class="row">
-      <div>
-        <span class="tag">CSE2HUM, Human Factors in Cyber Security</span>
-        <h3>Cyber threats and human exploitation in healthcare SMEs</h3>
-        <p>An industry threat analysis of how cybercriminals target small healthcare providers, why these attacks succeed so often, and what practical defences small teams can afford. Key points: healthcare recorded more data breach notifications than any other sector in Australia (OAIC, 2025), attackers succeeded in 95% of the healthcare attacks they attempted (Avant, 2025), and in one recent case the 22 day delay in notifying patients drew more criticism than the breach itself.</p>
-        <p style="margin-top:.6rem"><a href="../documents/healthcare-sme-cyber-threats.pdf">Read the report (PDF, 7 pages)</a></p>
-      </div>
-      <span class="chip running">Completed</span>
-    </article>
-    <article class="row">
-      <div>
-        <span class="tag">CSE2SIA, Security and Information Assurance</span>
-        <h3>Medibank 2022 data breach: report and slides</h3>
-        <p>A group case study on how the 2022 Medibank breach happened, what risks it created and which controls would have reduced them. Done with Javier Diaz-Aliste and Eddie Gosden. My parts were the introduction, the attack path (with each stage marked as confirmed, alleged or inferred), and two control comparisons: phishing-resistant MFA versus zero trust network access, and an in-house SIEM and SOC versus managed detection and response.</p>
-        <p style="margin-top:.6rem"><a href="../documents/medibank-2022-data-breach-group-report.pdf">Read the group report and slides (PDF, 14 pages)</a></p>
-      </div>
-      <span class="chip running">Completed</span>
-    </article>
-    <article class="row">
-      <div>
-        <span class="tag">CSE2HUM, Human Factors in Cyber Security</span>
-        <h3>WattleBridge executive briefing: human cyber risk</h3>
-        <p>A group briefing for the leadership of a fictional community services organisation, built only from the case evidence pack. It works out why staff who know what to do often don't do it, picks three priority human risks, and sets out a 12-month plan within a $65k budget. Done with Javier Diaz-Aliste and Eddie Gosden.</p>
-        <p style="margin-top:.6rem"><a href="../documents/wattlebridge-executive-briefing.pdf">Read the executive briefing (PDF, 29 pages)</a></p>
-      </div>
-      <span class="chip running">Completed</span>
-    </article>
-
-</section>
-<section class="section" style="margin-top:4.5rem">
-  <h2 class="title-lg">Side projects</h2>
-  <p class="meta">Personal projects outside my degree. More coming soon.</p>
+  <h2 class="reveal">Side projects</h2>
+  <p class="meta reveal">Personal projects outside my degree. More coming soon.</p>
 </section>
 
 </main>
-<footer class="site-footer">
+<footer class="footer">
   <div class="wrap">
-    <p>Seth Davies-Patrick, Melbourne<br><span class="credit">Headings set in Hanson by Finn Hanberg (Hanson Method Design), Creative Commons.</span></p>
+    <div><p>Seth Davies-Patrick, Melbourne</p><span class="credit">Set in Space Grotesk, Instrument Sans and JetBrains Mono, all under the SIL Open Font Licence.</span></div>
     <div class="links">
       <a href="https://github.com/sethosauruss" rel="noopener">GitHub</a>
       <a href="https://au.linkedin.com/in/sethdaviespatrick" rel="noopener">LinkedIn</a>
@@ -71,5 +45,6 @@
     </div>
   </div>
 </footer>
+<script src="../assets/js/main.js" defer></script>
 </body>
 </html>

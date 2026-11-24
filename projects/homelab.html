@@ -7,89 +7,76 @@
 <meta name="description" content="A self-built home lab simulating a small enterprise network: Proxmox, pfSense and four VLANs.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="../assets/img/favicon-32.png" type="image/png" sizes="32x32">
-<link rel="icon" href="../assets/img/favicon-512.png" type="image/png" sizes="512x512">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="preload" href="../assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/style.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="../index.html">Seth Davies-Patrick</a>
-    <nav class="site-nav" aria-label="Main"><a href="../index.html">Home</a><a href="../about.html">About</a><a href="../looking-for.html">Looking for</a><a href="../direction.html">Direction</a><a href="../projects/index.html" aria-current="page">Projects</a><a href="../skills.html">Skills</a><a href="../contact.html">Contact</a></nav>
+<header class="nav">
+  <div class="nav-bar">
+    <a class="brand" href="../index.html" aria-label="Seth Davies-Patrick, home"><b>SDP</b><span>Seth Davies-Patrick</span></a>
+    <nav class="nav-links" aria-label="Main"><a href="../index.html">Home</a><a href="../about.html">About</a><a href="../looking-for.html">Looking for</a><a href="../direction.html">Direction</a><a href="../projects/index.html" aria-current="page">Projects</a><a href="../skills.html">Skills</a><a href="../contact.html">Contact</a></nav>
+    <button class="nav-toggle" type="button" aria-expanded="false">Menu</button>
+    <a class="nav-resume" href="../resume.pdf">Resume</a>
   </div>
 </header>
 <main id="main" class="wrap">
-<section class="hero"><h1>Cybersecurity Home Lab</h1><p class="meta"><span class="chip progress">In progress</span> <span class="meta">Built and running. Attack testing is the current phase.</span></p><p class="lede">A self-built home lab simulating a small-scale enterprise IT environment, focused on infrastructure security, system administration and defensive cybersecurity.</p>
-  <div class="actions">
-    <a class="btn primary" href="https://github.com/sethosauruss/segmented-security-homelab" rel="noopener">View on GitHub</a>
-  </div>
-</section>
-<figure class="topology">
-  <div class="panel">
-    <svg viewBox="0 0 900 250" role="img" aria-label="Network diagram of the built lab: Internet connects to a pfSense firewall, then a managed switch, which feeds four VLANs named Trusted, Lab, IoT and DMZ, and Management.">
-      <path class="d-link" d="M130 124 H190"/><path class="d-link" d="M330 124 H390"/>
-      <path class="d-link" d="M540 124 H570 V37 H620"/><path class="d-link" d="M540 124 H570 V95 H620"/><path class="d-link" d="M540 124 H570 V153 H620"/><path class="d-link" d="M540 124 H570 V211 H620"/>
-      <rect class="d-box" x="20" y="98" width="110" height="52" rx="6"/><text class="d-title" x="36" y="121">Internet</text><text class="d-sub" x="36" y="138">upstream</text>
-      <rect class="d-box" x="190" y="98" width="140" height="52" rx="6"/><text class="d-title" x="206" y="121">pfSense</text><text class="d-sub" x="206" y="138">EliteDesk 800 G3</text>
-      <rect class="d-box" x="390" y="98" width="150" height="52" rx="6"/><text class="d-title" x="406" y="121">TL-SG108E</text><text class="d-sub" x="406" y="138">managed switch</text>
-      <rect class="d-box" x="620" y="14" width="260" height="46" rx="6"/><rect class="d-bar-trusted" x="620" y="14" width="7" height="46" rx="3"/><text class="d-title" x="640" y="34">VLAN 10 Trusted</text><text class="d-sub" x="640" y="51">Raspberry Pi 5 and services</text>
-      <rect class="d-box" x="620" y="72" width="260" height="46" rx="6"/><rect class="d-bar-lab" x="620" y="72" width="7" height="46" rx="3"/><text class="d-title" x="640" y="92">VLAN 20 Lab</text><text class="d-sub" x="640" y="109">Kali and DVWA VMs</text>
-      <rect class="d-box" x="620" y="130" width="260" height="46" rx="6"/><rect class="d-bar-iot" x="620" y="130" width="7" height="46" rx="3"/><text class="d-title" x="640" y="150">VLAN 30 IoT/DMZ</text><text class="d-sub" x="640" y="167">smart and low-trust devices</text>
-      <rect class="d-box" x="620" y="188" width="260" height="46" rx="6"/><rect class="d-bar-mgmt" x="620" y="188" width="7" height="46" rx="3"/><text class="d-title" x="640" y="208">VLAN 99 Management</text><text class="d-sub" x="640" y="225">Proxmox host, JetKVM</text>
-    </svg>
-    <ul class="diagram-list" aria-label="Network as a list">
-      <li>Internet to a pfSense firewall on an HP EliteDesk 800 G3 Mini, then a TL-SG108E managed switch.</li><li>Four firewalled VLANs: Trusted (10) with the Raspberry Pi 5, Lab (20) with Kali and DVWA, IoT/DMZ (30), and Management (99) with the Proxmox host and JetKVM.</li>
-    </ul>
-  </div>
-  <figcaption>The network as built.</figcaption>
-</figure>
+<section class="page-head"><p class="eyebrow reveal">Project</p><h1 class="reveal" style="--d:60ms">Cybersecurity Home Lab</h1><p class="reveal"><span class="chip progress">In progress</span> <span class="meta">Built and running. Attack testing is the current phase.</span></p><p class="lede">A self-built home lab simulating a small-scale enterprise IT environment, focused on infrastructure security, system administration and defensive cybersecurity.</p></section>
+<div class="actions reveal"><a class="btn primary" href="https://github.com/sethosauruss/segmented-security-homelab" rel="noopener">View on GitHub <span class="arr">&rarr;</span></a></div>
+<section class="section" style="margin-top:2.5rem"><figure class="lab reveal" data-lab data-base="../">
+  <div class="lab-head"><span class="chip progress">Built and running</span><span class="lab-hint">Interactive. Hover, tap or use the keyboard.</span></div>
+  <div class="lab-host" aria-live="off"></div>
+  <div class="lab-panel" aria-live="polite"><p class="lab-hint">Hover, tap or focus a node to see what it does.</p></div>
+  <div class="lab-text lab-fallback"><p><strong>Network as built, as a list.</strong></p>
+    <ul><li>Internet to a pfSense firewall on an HP EliteDesk 800 G3 Mini, then a TL-SG108E managed switch.</li><li>Four firewalled VLANs: Trusted (10) with the Raspberry Pi 5, Lab (20) with Kali and DVWA, IoT/DMZ (30), and Management (99) with the Proxmox host and JetKVM.</li></ul></div>
+  <details class="lab-text"><summary>Text version of this diagram</summary>
+    <ul><li>Internet to a pfSense firewall on an HP EliteDesk 800 G3 Mini, then a TL-SG108E managed switch.</li><li>Four firewalled VLANs: Trusted (10) with the Raspberry Pi 5, Lab (20) with Kali and DVWA, IoT/DMZ (30), and Management (99) with the Proxmox host and JetKVM.</li></ul></details>
+</figure></section>
 
 <section class="section" id="built">
-  <h2>What is built</h2>
-  <dl class="facts"><div><dt>Rack</dt><dd>A Tecmojo 6U, 10 inch rack, fully assembled. From the top down: pfSense firewall (an HP EliteDesk 800 G3 Mini) at 6U, the Proxmox host (a second EliteDesk) at 5U, a patch panel and brush panel at 4U, the TL-SG108E switch and a JetKVM at 3U, the Raspberry Pi 5 shelf at 2U, and 1U spare.</dd></div><div><dt>Cabling</dt><dd>A 12-port patch panel, wired and labelled. Cables are colour-coded by zone: green for Trusted, blue for Lab, orange for IoT/DMZ and grey for the uplink.</dd></div><div><dt>Firewall</dt><dd>pfSense 2.7.2 with router-on-a-stick off one onboard network port. I dropped a USB ethernet adapter after it proved unreliable.</dd></div><div><dt>DNS and remote access</dt><dd>DNS runs on Unbound, access-listed per subnet. Remote access is through Tailscale (on the Pi and my PC). No ports are forwarded except a Plex forward restricted to a source.</dd></div><div><dt>Raspberry Pi 5<br><span class="meta">Trusted VLAN</span></dt><dd>Raspberry Pi OS Lite with Docker Compose, running Plex (read-only media mounts), Samba (two shares only), Tailscale, Vaultwarden (backup tested), Uptime Kuma and Seerr. Seerr is for requests and discovery only, because I am deliberately not building a full download-automation stack. SSH is hardened: key-only, set in a drop-in config and verified with <code>sshd -T</code>.</dd></div><div><dt>Proxmox host<br><span class="meta">Management VLAN</span></dt><dd>Proxmox VE 9 with hardened SSH, verified both ways: the key works and a forced password login is correctly refused. It hosts a Kali VM and a DVWA target VM, both on the Lab VLAN. Kali has a <code>clean-install</code> snapshot. DVWA runs on Debian 13 with Apache, PHP and MariaDB, with <code>clean-install</code>, <code>dvwa-ready</code> and <code>attack-baseline</code> snapshots.</dd></div><div><dt>JetKVM<br><span class="meta">Management VLAN</span></dt><dd>Out-of-band console and BIOS access to the machines in the rack.</dd></div></dl>
+  <h2 class="reveal">What is built</h2>
+  <dl class="facts"><div class="reveal"><dt>Rack</dt><dd>A Tecmojo 6U, 10 inch rack, fully assembled. From the top down: pfSense firewall (an HP EliteDesk 800 G3 Mini) at 6U, the Proxmox host (a second EliteDesk) at 5U, a patch panel and brush panel at 4U, the TL-SG108E switch and a JetKVM at 3U, the Raspberry Pi 5 shelf at 2U, and 1U spare.</dd></div><div class="reveal"><dt>Cabling</dt><dd>A 12-port patch panel, wired and labelled. Cables are colour-coded by zone: green for Trusted, blue for Lab, orange for IoT/DMZ and grey for the uplink.</dd></div><div class="reveal"><dt>Firewall</dt><dd>pfSense 2.7.2 with router-on-a-stick off one onboard network port. I dropped a USB ethernet adapter after it proved unreliable.</dd></div><div class="reveal"><dt>DNS and remote access</dt><dd>DNS runs on Unbound, access-listed per subnet. Remote access is through Tailscale (on the Pi and my PC). No ports are forwarded except a Plex forward restricted to a source.</dd></div><div class="reveal"><dt>Raspberry Pi 5<span class="meta">Trusted VLAN</span></dt><dd>Raspberry Pi OS Lite with Docker Compose, running Plex (read-only media mounts), Samba (two shares only), Tailscale, Vaultwarden (backup tested), Uptime Kuma and Seerr. Seerr is for requests and discovery only, because I am deliberately not building a full download-automation stack. SSH is hardened: key-only, set in a drop-in config and verified with <code>sshd -T</code>.</dd></div><div class="reveal"><dt>Proxmox host<span class="meta">Management VLAN</span></dt><dd>Proxmox VE 9 with hardened SSH, verified both ways: the key works and a forced password login is correctly refused. It hosts a Kali VM and a DVWA target VM, both on the Lab VLAN. Kali has a <code>clean-install</code> snapshot. DVWA runs on Debian 13 with Apache, PHP and MariaDB, with <code>clean-install</code>, <code>dvwa-ready</code> and <code>attack-baseline</code> snapshots.</dd></div><div class="reveal"><dt>JetKVM<span class="meta">Management VLAN</span></dt><dd>Out-of-band console and BIOS access to the machines in the rack.</dd></div></dl>
 </section>
 
 <section class="section" id="segmentation">
-  <h2>Network zones</h2>
-  <ul class="vlans"><li class="trusted"><strong>VLAN 10 Trusted</strong>: everyday devices and the Raspberry Pi.</li><li class="lab"><strong>VLAN 20 Lab</strong>: the Kali and DVWA VMs, kept away from everything else.</li><li class="iot"><strong>VLAN 30 IoT/DMZ</strong>: smart and low-trust devices.</li><li class="mgmt"><strong>VLAN 99 Management</strong>: the Proxmox host and the JetKVM.</li></ul>
-  <p style="margin-top:1.2rem">There is also the LAN on VLAN 1 and the WAN on VLAN 2. Every zone is firewalled default-deny. I tested the isolation two ways: through the firewall rules, and with an 802.1Q audit of the switch, which caught and fixed a couple of leftover VLAN memberships.</p>
+  <h2 class="reveal">Network zones</h2>
+  <ul class="vlans reveal"><li class="trusted"><strong>VLAN 10 Trusted</strong>: everyday devices and the Raspberry Pi.</li><li class="lab"><strong>VLAN 20 Lab</strong>: the Kali and DVWA VMs, kept away from everything else.</li><li class="iot"><strong>VLAN 30 IoT/DMZ</strong>: smart and low-trust devices.</li><li class="mgmt"><strong>VLAN 99 Management</strong>: the Proxmox host and the JetKVM.</li></ul>
+  <p class="reveal" style="margin-top:1.2rem">There is also the LAN on VLAN 1 and the WAN on VLAN 2. Every zone is firewalled default-deny. I tested the isolation two ways: through the firewall rules, and with an 802.1Q audit of the switch, which caught and fixed a couple of leftover VLAN memberships.</p>
+</section>
+
+<section class="section" id="attack">
+  <h2 class="reveal">Attack testing (current phase)</h2>
+  <dl class="facts"><div class="reveal"><dt>DVWA login page</dt><dd>I brute-forced the main login page. A CSRF token and redirect caused false positives, so I wrote a custom curl loop that fetches a fresh token for every attempt and follows redirects. It found the default credential cleanly.</dd></div><div class="reveal"><dt>DVWA Brute Force module</dt><dd>I used Hydra against the separate training module (a GET form with no CSRF at the Low level). Fixing a field-ordering mistake and a typo that caused a false positive got the same credential. Both results were checked by hand in the browser.</dd></div></dl>
 </section>
 
 <section class="section">
-  <h2>Attack testing (current phase)</h2>
-  <dl class="facts"><div><dt>DVWA login page</dt><dd>I brute-forced the main login page. A CSRF token and redirect caused false positives, so I wrote a custom curl loop that fetches a fresh token for every attempt and follows redirects. It found the default credential cleanly.</dd></div><div><dt>DVWA Brute Force module</dt><dd>I used Hydra against the separate training module (a GET form with no CSRF at the Low level). Fixing a field-ordering mistake and a typo that caused a false positive got the same credential. Both results were checked by hand in the browser.</dd></div></dl>
+  <h2 class="reveal">Known gaps</h2>
+  <ul class="plain reveal"><li><strong>No SIEM or detection layer yet.</strong> Wazuh is the long-standing gap.</li><li><strong>Backups are patchy.</strong> Only Vaultwarden has a proper backup script so far.</li></ul>
 </section>
 
 <section class="section">
-  <h2>Known gaps</h2>
-  <ul class="plain"><li><strong>No SIEM or detection layer yet.</strong> Wazuh is the long-standing gap.</li><li><strong>Backups are patchy.</strong> Only Vaultwarden has a proper backup script so far.</li></ul>
+  <h2 class="reveal">Planned, not started</h2>
+  <dl class="facts"><div class="reveal"><dt>More targets</dt><dd>Metasploitable2 for a broader attack surface and Metasploit practice, OWASP Juice Shop as a more realistic modern web app, and re-running the brute-force tests at DVWA Medium and High difficulty.</dd></div><div class="reveal"><dt>More attack tooling</dt><dd>Running the next DVWA rounds (SQL injection, XSS, command injection) through Burp Suite, and CALDERA and Atomic Red Team for automated adversary emulation mapped to MITRE ATT&amp;CK.</dd></div><div class="reveal"><dt>Detection</dt><dd>Wazuh, possibly paired with the pfSense packages pfBlockerNG (reputation and GeoIP blocking) and Suricata or Snort (IDS/IPS).</dd></div><div class="reveal"><dt>Documentation tooling</dt><dd>NetBox for IPAM and DCIM, replacing the markdown VLAN and rack tables with a queryable system.</dd></div><div class="reveal"><dt>Second Raspberry Pi 5 (8GB)</dt><dd>A two-node K3s cluster, Prometheus and Grafana for real metrics, and Homepage or Homarr as one dashboard.</dd></div><div class="reveal"><dt>1U rack display</dt><dd>A GeeekPi 6.91 inch 1424x280 screen looks like the right fit. Not bought yet.</dd></div><div class="reveal"><dt>Backups</dt><dd>Centralising them with Restic or Duplicati.</dd></div><div class="reveal"><dt>Traffic visibility</dt><dd>ntopng, if the switch can mirror a port or through pfSense.</dd></div></dl>
 </section>
 
 <section class="section">
-  <h2>Planned, not started</h2>
-  <dl class="facts"><div><dt>More targets</dt><dd>Metasploitable2 for a broader attack surface and Metasploit practice, OWASP Juice Shop as a more realistic modern web app, and re-running the brute-force tests at DVWA Medium and High difficulty.</dd></div><div><dt>More attack tooling</dt><dd>Running the next DVWA rounds (SQL injection, XSS, command injection) through Burp Suite, and CALDERA and Atomic Red Team for automated adversary emulation mapped to MITRE ATT&amp;CK.</dd></div><div><dt>Detection</dt><dd>Wazuh, possibly paired with the pfSense packages pfBlockerNG (reputation and GeoIP blocking) and Suricata or Snort (IDS/IPS).</dd></div><div><dt>Documentation tooling</dt><dd>NetBox for IPAM and DCIM, replacing the markdown VLAN and rack tables with a queryable system.</dd></div><div><dt>Second Raspberry Pi 5 (8GB)</dt><dd>A two-node K3s cluster, Prometheus and Grafana for real metrics, and Homepage or Homarr as one dashboard.</dd></div><div><dt>1U rack display</dt><dd>A GeeekPi 6.91 inch 1424x280 screen looks like the right fit. Not bought yet.</dd></div><div><dt>Backups</dt><dd>Centralising them with Restic or Duplicati.</dd></div><div><dt>Traffic visibility</dt><dd>ntopng, if the switch can mirror a port or through pfSense.</dd></div></dl>
+  <h2 class="reveal">Documentation</h2>
+  <p class="reveal">Everything is documented on <a href="https://github.com/sethosauruss/segmented-security-homelab" rel="noopener">GitHub</a>. The repo is split into:</p>
+  <dl class="facts"><div class="reveal"><dt><code>network-security.md</code></dt><dd>The threat model, zones, switch and patch panel, firewall rules, DNS, remote access, and hardening by host.</dd></div><div class="reveal"><dt><code>testing-and-gaps.md</code></dt><dd>Isolation test results, known gaps and lessons.</dd></div><div class="reveal"><dt><code>dvwa-pentest.md</code></dt><dd>The target setup and a running attack log.</dd></div><div class="reveal"><dt><code>SECURITY.md</code></dt><dd>A vulnerability-disclosure file at the root of the repo.</dd></div></dl>
+  <p class="reveal" style="margin-top:1.2rem">I also publish a weekly series of LinkedIn posts documenting the build.</p>
 </section>
 
 <section class="section">
-  <h2>Documentation</h2>
-  <p>Everything is documented on <a href="https://github.com/sethosauruss/segmented-security-homelab" rel="noopener">GitHub</a>. The repo is split into:</p>
-  <dl class="facts"><div><dt><code>network-security.md</code></dt><dd>The threat model, zones, switch and patch panel, firewall rules, DNS, remote access, and hardening by host.</dd></div><div><dt><code>testing-and-gaps.md</code></dt><dd>Isolation test results, known gaps and lessons.</dd></div><div><dt><code>dvwa-pentest.md</code></dt><dd>The target setup and a running attack log.</dd></div><div><dt><code>SECURITY.md</code></dt><dd>A vulnerability-disclosure file at the root of the repo.</dd></div></dl>
-  <p style="margin-top:1.2rem">I also publish a weekly series of LinkedIn posts documenting the build.</p>
-</section>
-
-<section class="section">
-  <h2>Where it started</h2>
-  <p>My first Proxmox host was a repurposed Surface Pro with a broken screen. It is retired now, but the SSH hardening, Fail2Ban, Docker and log analysis work from it is still documented in the <a href="https://github.com/sethosauruss/surfacepro-cybersecurity-homelab" rel="noopener">old repo on GitHub</a>.</p>
+  <h2 class="reveal">Where it started</h2>
+  <p class="reveal">My first Proxmox host was a repurposed Surface Pro with a broken screen. It is retired now, but the SSH hardening, Fail2Ban, Docker and log analysis work from it is still documented in the <a href="https://github.com/sethosauruss/surfacepro-cybersecurity-homelab" rel="noopener">old repo on GitHub</a>.</p>
 </section>
 
 </main>
-<footer class="site-footer">
+<footer class="footer">
   <div class="wrap">
-    <p>Seth Davies-Patrick, Melbourne<br><span class="credit">Headings set in Hanson by Finn Hanberg (Hanson Method Design), Creative Commons.</span></p>
+    <div><p>Seth Davies-Patrick, Melbourne</p><span class="credit">Set in Space Grotesk, Instrument Sans and JetBrains Mono, all under the SIL Open Font Licence.</span></div>
     <div class="links">
       <a href="https://github.com/sethosauruss" rel="noopener">GitHub</a>
       <a href="https://au.linkedin.com/in/sethdaviespatrick" rel="noopener">LinkedIn</a>
@@ -97,5 +84,6 @@
     </div>
   </div>
 </footer>
+<script src="../assets/js/main.js" defer></script><script src="../assets/js/lab.js" defer></script>
 </body>
 </html>
